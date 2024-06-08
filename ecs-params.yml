@@ -1,0 +1,12 @@
+version: 1
+task_definition:
+  services:
+    my-node-app:
+      cpu_shares: 256
+      mem_limit: 512m
+      essential: true
+      image: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+      ports:
+        - container_port: 3000
+          host_port: 3000
+          protocol: tcp
