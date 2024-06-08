@@ -22,7 +22,7 @@ resource "aws_codepipeline" "app" {
         Owner      = "yourusername"
         Repo       = "your-repo"
         Branch     = "master"
-        OAuthToken = var.github_token
+        OAuthToken = var.token
       }
     }
   }
