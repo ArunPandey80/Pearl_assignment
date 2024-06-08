@@ -1,14 +1,14 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:387443697682:task-definition/demo-task:2",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:387443697682:task-definition/nodejs-app-task-definition:1",
     "containerDefinitions": [
         {
-            "name": "mycontainer",
-            "image": "public.ecr.aws/b8q1d9l4/myecr-repo:latest",
+            "name": "nodeapp",
+            "image": "public.ecr.aws/b8q1d9l4/nodeapp",
             "cpu": 1024,
             "memory": 3072,
             "portMappings": [
                 {
-                    "name": "mycontainer-5000-tcp",
+                    "name": "nodeapp-5000-tcp",
                     "containerPort": 5000,
                     "hostPort": 5000,
                     "protocol": "tcp",
@@ -24,26 +24,21 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/demo-task",
+                    "awslogs-group": "/ecs/nodejs-app-task-definition",
                     "awslogs-create-group": "true",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
             },
-            "systemControls": [],
-            "resourceRequirements": [
-                {
-                    "value": "1",
-                    "type": "GPU"
-                }
-            ]
+            "systemControls": []
         }
     ],
-    "family": "demo-task",
+    "family": "nodejs-app-task-definition",
     "taskRoleArn": "arn:aws:iam::387443697682:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::387443697682:role/ecsTaskExecutionRole",
-    "revision": 2,
+    "networkMode": "awsvpc",
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -63,22 +58,28 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         },
         {
+            "name": "ecs.capability.task-eni"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2"
+        "EC2",
+        "FARGATE"
     ],
     "requiresCompatibilities": [
-        "EC2"
+        "EC2",
+        "FARGATE"
     ],
     "cpu": "1024",
+    "memory": "3072",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-06-08T14:58:40.733Z",
+    "registeredAt": "2024-06-08T16:52:57.271Z",
     "registeredBy": "arn:aws:iam::387443697682:user/Arun-Pandey",
     "tags": []
 }
