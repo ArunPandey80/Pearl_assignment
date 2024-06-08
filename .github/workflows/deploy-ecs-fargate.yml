@@ -26,7 +26,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: public.ecr.aws/b8q1d9l4/myecr-repo:latest
+          IMAGE_TAG: latest
           REPOSITORY: myecr-repo
         run: |
           # Build a docker container and
