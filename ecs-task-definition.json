@@ -1,11 +1,10 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:387443697682:task-definition/nodejs-app-task-definition:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:387443697682:task-definition/nodejs-app-task-definition:2",
     "containerDefinitions": [
         {
             "name": "nodeapp",
-            "image": "public.ecr.aws/b8q1d9l4/nodeapp",
-            "cpu": 1024,
-            "memory": 3072,
+            "image": "387443697682.dkr.ecr.ap-south-1.amazonaws.com/nodeapp",
+            "cpu": 0,
             "portMappings": [
                 {
                     "name": "nodeapp-5000-tcp",
@@ -38,7 +37,7 @@
     "taskRoleArn": "arn:aws:iam::387443697682:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::387443697682:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -49,10 +48,16 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -79,7 +84,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-06-08T16:52:57.271Z",
+    "registeredAt": "2024-06-08T17:34:24.866Z",
     "registeredBy": "arn:aws:iam::387443697682:user/Arun-Pandey",
     "tags": []
 }
